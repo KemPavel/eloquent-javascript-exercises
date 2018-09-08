@@ -1,0 +1,1 @@
+The solution of exercises from the book "Expressive Javascript".
