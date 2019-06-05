@@ -39,21 +39,41 @@ const ancestry = [
     {"name": "Maria Sturm", "sex": "f", "born": 1835, "died": 1917, "father": "Charles Sturm", "mother": "Seraphina Spelier"},
     {"name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke"}
   ];
-    
-    function getAgeDifference() {
-      const result = [];
-      ancestry.forEach(person => {
-        const mother = ancestry.find(anc => anc.name === person.mother);
-        if (mother) {
-          result.push(person.born - mother.born);
-        }
-      });
-      return result;
+
+  function groupBy(arr, aggregator) {
+    const result = {};
+    arr.forEach(person => {
+      const key = aggregator(person);
+      if (key in result) {
+        result[key].push(getPersonAge(person));
+      } else {
+        result[key] = [getPersonAge(person)];
+      }
+    })
+    return result;
+  }
+
+  function calculateCentury(person) {
+    return  Math.round(person.died / 100);
+  }
+
+  function getPersonAge(person) {
+    return person.died - person.born;
+  }
+
+  function getAverage(arr) {
+    function plus(a, b) { return a + b; }
+    return (arr.reduce(plus) / arr.length).toFixed(2);
+  }
+
+  function getAverageCenturyAge(data, aggregator) {
+    const result = {};
+    for (key in data) {
+      result[key] = aggregator(data[key]);
     }
-  
-    function averageAge(arr) {
-      function plus(a, b) { return a + b; }
-      return Math.round(arr.reduce(plus) / arr.length);
-    }
-  
-    console.log(averageAge(getAgeDifference()));
+    return result;
+  }
+
+  const groupedData = groupBy(ancestry, calculateCentury);
+
+  console.log(getAverageCenturyAge(groupedData, getAverage));
