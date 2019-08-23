@@ -1,6 +1,6 @@
 // helper functions 
 function elementFromChar(legend, ch) {
-  if (ch == ' ') {
+  if (ch === ' ') {
     return null;
   }
   const element = new legend[ch]();

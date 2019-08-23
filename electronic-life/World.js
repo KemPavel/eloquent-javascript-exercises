@@ -22,29 +22,29 @@ World.prototype.toString = function() {
   }
 
   return output;
-}
+};
 
 World.prototype.turn = function() {
   const acted = [];
 
   this.grid.iterate(function(critter, vector) {
-    if (critter.act && acted.indexOf(critter) == -1) {
+    if (critter.act && acted.indexOf(critter) === -1) {
       acted.push(critter);
       this.letAct(critter, vector);
     }
   }, this)
-}
+};
 
 World.prototype.letAct = function(critter, vector) {
   const action = critter.act(new View(this, vector));
-  if (action && action.type == 'move') {
+  if (action && action.type === 'move') {
     const dest = this.checkDestination(action, vector);
     if (dest && this.grid.get(dest) == null) {
       this.grid.set(vector, null);
       this.grid.set(dest, critter);
     }
   }
-}
+};
 
 World.prototype.checkDestination = function(action, vector) {
   if (DIRECTIONS.hasOwnProperty(action.direction)) {
@@ -53,7 +53,7 @@ World.prototype.checkDestination = function(action, vector) {
       return dest;
     }
   }
-}
+};
 
 // create LifelikeWorld class
 function LifelikeWorld(map, legend) {
@@ -73,4 +73,4 @@ LifelikeWorld.prototype.letAct = function(critter, vector) {
       this.grid.set(vector, null);
     }
   }
-}
+};
