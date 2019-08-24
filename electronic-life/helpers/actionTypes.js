@@ -3,7 +3,7 @@ const actionTypes = Object.create(null);
 actionTypes.grow = function(critter) {
   critter.energy += 0.5;
   return true;
-}
+};
 
 actionTypes.move = function(critter, vector, action) {
   const dest = this.checkDestination(action, vector);
@@ -26,18 +26,6 @@ actionTypes.eat = function(critter, vector, action) {
   this.grid.set(dest, null);
   return true;
 };
-
-// actionTypes.nosh = function(critter, vector, action) {
-//   const dest = this.checkDestination(action, vector);
-//   const atDest = dest != null && this.grid.get(dest);
-//   if (!atDest || atDest.energy >= 10) {
-//     return false;
-//   }
-//   const food = atDest.energy - 5;
-//   critter.energy += food;
-//   atDest.energy = 5;
-//   return true;
-// };
 
 actionTypes.reproduce = function(critter, vector, action) {
   const baby = elementFromChar(this.legend, critter.originChar);

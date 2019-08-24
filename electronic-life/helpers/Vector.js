@@ -6,4 +6,4 @@ function Vector(x, y) {
 
 Vector.prototype.plus = function(other) {
   return new Vector(this.x + other.x, this.y + other.y);
-}
+};

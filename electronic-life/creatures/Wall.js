@@ -1,3 +1,3 @@
 
-    // create Wall class
-    function Wall() {};
+// create Wall class
+function Wall() {}

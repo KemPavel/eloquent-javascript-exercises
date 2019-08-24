@@ -1,4 +1,3 @@
-// helper functions 
 function elementFromChar(legend, ch) {
   if (ch === ' ') {
     return null;

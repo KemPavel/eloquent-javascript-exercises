@@ -1,49 +1,34 @@
-// create a plantEacter creature
 function PlantEater() {
+  this.dir = randomElement(Object.keys(DIRECTIONS));
   this.energy = 20;
   this.foodCounter = 0;
 }
 
 PlantEater.prototype.act = function(view) {
   const space = view.find(' ');
-  // document.write('energy: ', this.energy, ' counter: ', this.foodCounter, '<br />');
   if (this.energy > 60 && space) {
     this.foodCounter += 1;
     return { type: 'reproduce', direction: space };
   }
-  if (this.foodCounter > 5) {
+  if (this.foodCounter > 0) {
     const plant = view.find('*');
     if (plant) {
       this.foodCounter = 0;
-      return {type: 'eat', direction: plant };
+      return { type: 'eat', direction: plant };
     }
   }
-  if (space) {
-    this.foodCounter += 1;
-    return { type: 'move', direction: space };
-  }
+  return this.move(view);
 };
 
+PlantEater.prototype.move = function(view) {
+  let direction = this.dir;
+  this.foodCounter += 1;
 
-
-// create a SmartPlantEater class
-// function SmartPlantEater() {
-//   this.energy = 20;
-// }
-//
-// SmartPlantEater.prototype.act = function(view) {
-//   const space = view.find(' ');
-//   // document.write('energy: ', this.energy, '<br />');
-//   if (this.energy > 100 && space) {
-//     return { type: 'reproduce', direction: space };
-//   }
-//   const plant = view.find('*');
-//   if (plant && this.energy < 20) {
-//     return { type: 'eat', direction: plant };
-//   } else if (plant && this.energy < 120) {
-//     return { type: 'nosh', direction: plant };
-//   }
-//   if (space) {
-//     return { type: 'move', direction: space };
-//   }
-// };
+  while (view.look(this.dir) !== ' ') {
+    this.dir = dirPlus(this.dir, (Math.random() < 0.5) ? -3 : 3);
+    if (this.dir === direction) {
+      break;
+    }
+  }
+  return { type: 'move', direction: this.dir };
+};

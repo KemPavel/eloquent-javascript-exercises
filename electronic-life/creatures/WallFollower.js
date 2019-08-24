@@ -1,4 +1,4 @@
-// create a 'wall follower' creature
+// critter checks if the left-behind position was a barrier (wall or something else)
 function WallFollower() {
   this.dir = 's';
 }

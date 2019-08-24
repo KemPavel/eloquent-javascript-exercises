@@ -7,59 +7,8 @@
   <title>Eloquent JavaScript</title>
 </head>
 <body>
-  <script src="./electronic-life/helpers/Vector.js"></script>
-  <script src="./electronic-life/helpers/Grid.js"></script>
-  <script src="./electronic-life/constants.js"></script>
-  <script src="./electronic-life/helpers/actionTypes.js"></script>
-  <script src="./electronic-life/creatures/Plant.js"></script>
-  <script src="./electronic-life/creatures/PlantEater.js"></script>
-  <script src="./electronic-life/helpers/helpers.js"></script>
-  <script src="./electronic-life/creatures/Wall.js"></script>
-  <script src="./electronic-life/World.js"></script>
-  <script src="./electronic-life/helpers/View.js"></script>
   <script>
-    // initialize world 
-    // const plan = [
-    //   "############################",
-    //   "#      #    #      o      ##",
-    //   "#                          #",
-    //   "#~        ~#####           #",
-    //   "##         #    #     ##  ~#",
-    //   "###           ##     #     #",
-    //   "#           ###     ~#     #",
-    //   "#   ####                   #",
-    //   "#   ##       o             #",
-    //   "# o  #         o       ### #",
-    //   "#    #                     #",
-    //   "############################"
-    // ];
-    // const world = new World(plan, {'#': Wall, 'o': BouncingCritter, '~': WallFollower});
 
-    // initialize LifelikeWorld
-    const valley = [
-      "############################",
-      "#####                 ######",
-      "##   ***                **##",
-      "#   *##**         **     *##",
-      "#    ***          ##**    *#",
-      "#                 ##***    #",
-      "#                 ##**     #",
-      "#             #*           #",
-      "#*            #**          #",
-      "#***          ##**   O  **#",
-      "##****        ###***    *###",
-      "############################"
-    ];
-    const utopia = new LifelikeWorld(valley, {'#': Wall, 'O': PlantEater, '*': Plant});
-
-    // animate world
-    function animateWorld() {
-      utopia.turn();
-      console.clear();
-      console.log(utopia.toString());
-    }
-
-    setInterval(animateWorld, 1000);
   </script>
 </body>
 </html>

@@ -55,7 +55,7 @@ World.prototype.checkDestination = function(action, vector) {
   }
 };
 
-// create LifelikeWorld class
+// LifelikeWorld class inherits from World class
 function LifelikeWorld(map, legend) {
   World.call(this, map, legend);
 }
