@@ -1,1 +1,1 @@
-The solution of exercises from the book "Eloquent Javascript".
+The solution of exercises from the "Eloquent Javascript" book.
