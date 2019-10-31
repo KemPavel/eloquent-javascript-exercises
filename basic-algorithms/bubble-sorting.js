@@ -7,6 +7,7 @@ function bubbleSorting(arr) {
   const array = [...arr];
   const end = array.length - 1;
 
+  // OPTIMIZED APPROACH
   do {
     swapped = false;
     for (let i = 0, next = i + 1; i < end; i++, next++) {
@@ -16,6 +17,17 @@ function bubbleSorting(arr) {
       }
     }
   } while (swapped);
+
+  // BASIC APPROACH
+  // for(let i = 0; i < array.length; i++) {
+  //   for(let j = 0; j < array.length; j++) {
+  //     if(array[j] > array[j+1]) {
+  //       const nextValue = array[j+1];
+  //       array[j+1] = array[j];
+  //       array[j] = nextValue;
+  //     }
+  //   }
+  // }
 
   return array;
 }
