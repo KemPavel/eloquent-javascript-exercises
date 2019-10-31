@@ -1,6 +1,6 @@
-const array = [25, 5, 1, 9, 4, 12, 7, 15, 10, 3, 0]; // 12 calls
-// const array = [1, 2, 3];                          // 2 call
-// const array = [9, 1, 2, 3, 5, 7];                 // 3 call
+const array = [25, 5, 1, 9, 4, 12, 7, 15, 10, 3, 0];
+// const array = [1, 2, 3];
+// const array = [9, 1, 2, 3, 5, 7];
 
 function bubbleSorting(arr) {
   let swapped = false;
